@@ -10,23 +10,36 @@ import {
 
 import reportWebVitals from "./reportWebVitals.ts";
 
-import App from "./App.tsx";
+import Header from "./layout/Header.tsx";
+import "./styles/global.css.ts";
+import Layout from "./layout/Layout.tsx";
+import Home from "./pages/home/index.tsx";
+import { Article } from "./pages/article/index.tsx";
+import { getPostBySlug } from "./utils/posts";
 
 const rootRoute = createRootRoute({
   component: () => (
-    <>
+    <Layout>
+      <Header />
       <Outlet />
-    </>
+    </Layout>
   ),
 });
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: App,
+  component: Home,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute]);
+const articleRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "posts/$slug",
+  loader: ({ params }) => getPostBySlug(params.slug),
+  component: Article,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, articleRoute]);
 
 const router = createRouter({
   routeTree,
@@ -49,7 +62,7 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>,
+    </StrictMode>
   );
 }
 
