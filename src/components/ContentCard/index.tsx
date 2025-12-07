@@ -13,78 +13,52 @@ export interface ContentCardProps {
   size?: "small" | "medium" | "large";
 }
 
-const positionMap = {
-  "top-right": styles.topRight,
-  "bottom-right": styles.bottomRight,
-  "top-left": styles.topLeft,
-  "bottom-left": styles.bottomLeft,
-};
-
 const sizeMap = {
-  small: "16px",
+  small: "18px",
   medium: "24px",
-  large: "32px",
+  large: "36px",
 };
 
 const ContentCard = ({
   imageSrc,
   title,
-  titlePosition = "bottom-right",
   date,
   tags = [],
   linkTo,
   size = "medium",
 }: ContentCardProps) => {
-  const parsedTitle = Array.isArray(title) ? title : [title];
-  const tagsPosition = titlePosition === "top-left" ? "top-right" : "top-left";
+  const parsedTitle = Array.isArray(title) ? title.join(" ") : title;
 
   const content = (
     <>
-      <div className={`${styles.titleContainer} ${positionMap[titlePosition]}`}>
-        {parsedTitle.map((t, i) => (
-          <div key={i} className={styles.titleBubble}>
-            <span
-              className={styles.title}
-              style={assignInlineVars({ [styles.titleSize]: sizeMap[size] })}
-            >
-              {t}
-            </span>
-          </div>
-        ))}
+      <div className={styles.imageContainer}>
+        <img src={imageSrc} alt={parsedTitle} className={styles.image} />
+      </div>
+      
+      <div className={styles.metaContainer}>
+        {date && <span>{formatDate(date)}</span>}
+        {tags.length > 0 && date && <span>|</span>}
+        {tags.length > 0 && <span>{tags.join(", ")}</span>}
       </div>
 
-      <div
-        className={`${styles.tagsContainer} ${positionMap[tagsPosition]}`}
-        style={{ gap: "8px" }}
+      <h3
+        className={styles.title}
+        style={assignInlineVars({ [styles.titleSize]: sizeMap[size] })}
       >
-        <div className={styles.filledTag}>
-          <span>{date ? formatDate(date) : ""}</span>
-        </div>
-
-        <div className={styles.outlinedTag}>
-          <span>{tags.join(", ")}</span>
-        </div>
-      </div>
+        {parsedTitle}
+      </h3>
     </>
   );
 
-  const styleVars = assignInlineVars({
-    [styles.backgroundImageVar]: `url(${imageSrc})`,
-  });
-
   if (linkTo) {
     return (
-      <Link to={linkTo} className={styles.container} style={styleVars}>
+      <Link to={linkTo} className={styles.container}>
         {content}
       </Link>
     );
   }
 
-  return (
-    <div className={styles.container} style={styleVars}>
-      {content}
-    </div>
-  );
+  return <div className={styles.container}>{content}</div>;
 };
 
 export default ContentCard;

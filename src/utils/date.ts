@@ -4,7 +4,16 @@ export const formatDate = (dateString: string) => {
 
   return new Intl.DateTimeFormat("en-US", {
     year: "numeric",
-    month: "short",
-    day: "2-digit",
+    month: "long",
+    day: "numeric",
   }).format(date);
+};
+
+export const getToday = () => {
+  return new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(new Date());
 };

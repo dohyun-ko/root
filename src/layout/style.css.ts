@@ -7,27 +7,48 @@ export const headerWrapper = style([
   {
     alignItems: "center",
     width: "100%",
-    margin: "0 40px",
+    backgroundColor: "#F5F2E8",
+    borderBottom: "1px solid #2b2b2b",
+    marginBottom: "40px",
   },
 ]);
 
 export const headerContainer = style([
-  hStack,
+  vStack,
   {
-    padding: "20px 20px 0",
-    gap: "40px",
-    alignItems: "end",
+    padding: "40px 20px 20px",
+    gap: "20px",
+    alignItems: "center",
     width: "100%",
     maxWidth: styleConstants.width.inner,
+    borderBottom: "4px double #2b2b2b",
+  },
+]);
+
+export const metaBar = style([
+  hStack,
+  {
+    width: "100%",
+    justifyContent: "space-between",
+    padding: "8px 0",
+    borderTop: "1px solid #2b2b2b",
+    borderBottom: "1px solid #2b2b2b",
+    fontFamily: '"Lora", serif',
+    fontSize: "14px",
+    fontStyle: "italic",
   },
 ]);
 
 export const title = style([
   {
     margin: 0,
-    lineHeight: "28px",
-    fontSize: "36px",
-    fontWeight: 400,
+    lineHeight: 1,
+    fontSize: "48px",
+    fontWeight: 900,
+    fontFamily: '"Playfair Display", serif',
+    textTransform: "uppercase",
+    textAlign: "center",
+    letterSpacing: "-0.02em",
   },
 ]);
 
@@ -43,13 +64,26 @@ export const layoutContainer = style([
 export const navigation = style([
   hStack,
   {
-    gap: "16px",
+    gap: "32px",
+    width: "100%",
+    justifyContent: "center",
+    padding: "12px 0",
+    borderTop: "1px solid #2b2b2b",
+    borderBottom: "1px solid #2b2b2b",
   },
 ]);
 
 export const navigationLink = style([
   {
     textDecoration: "none",
-    color: "#000000",
+    color: "#2b2b2b",
+    fontFamily: '"Lora", serif',
+    fontSize: "14px",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
+    ":hover": {
+      textDecoration: "underline",
+    },
   },
 ]);

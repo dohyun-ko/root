@@ -14,6 +14,7 @@ import Header from "./layout/Header.tsx";
 import "./styles/global.css.ts";
 import Layout from "./layout/Layout.tsx";
 import Home from "./pages/home/index.tsx";
+import About from "./pages/about/index.tsx";
 import { Article } from "./pages/article/index.tsx";
 import { getPostBySlug } from "./utils/posts";
 
@@ -32,6 +33,12 @@ const indexRoute = createRoute({
   component: Home,
 });
 
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/about",
+  component: About,
+});
+
 const articleRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "posts/$slug",
@@ -39,7 +46,7 @@ const articleRoute = createRoute({
   component: Article,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, articleRoute]);
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, articleRoute]);
 
 const router = createRouter({
   routeTree,

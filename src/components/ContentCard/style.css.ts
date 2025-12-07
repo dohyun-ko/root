@@ -5,126 +5,59 @@ export const titleSize = createVar();
 export const backgroundImageVar = createVar();
 
 export const container = style([
+  vStack,
   {
-    display: "block",
-    position: "relative",
+    textDecoration: "none",
+    color: "inherit",
+    width: "100%",
+    gap: "16px",
+    borderBottom: "1px solid #e0e0e0",
+    paddingBottom: "24px",
+    marginBottom: "24px",
+  },
+]);
+
+export const imageContainer = style([
+  {
+    width: "100%",
+    aspectRatio: "16/9",
+    overflow: "hidden",
+    border: "1px solid #2b2b2b",
+  },
+]);
+
+export const image = style([
+  {
     width: "100%",
     height: "100%",
-    borderRadius: "24px",
-    overflow: "hidden",
-    isolation: "isolate",
-  },
-  {
-    "::before": {
-      content: '""',
-      position: "absolute",
-      inset: 0,
-      zIndex: -1,
-      backgroundImage: backgroundImageVar,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+    objectFit: "cover",
+    filter: "grayscale(100%)", // Black and white for newspaper feel
+    transition: "filter 0.3s ease",
+    ":hover": {
+      filter: "grayscale(0%)",
     },
   },
 ]);
 
-export const topLeft = style([
+export const metaContainer = style([
   {
-    top: 10,
-    left: 10,
-    alignItems: "start",
-  },
-]);
-
-export const topRight = style([
-  {
-    top: 10,
-    right: 10,
-    alignItems: "end",
-  },
-]);
-
-export const bottomLeft = style([
-  {
-    bottom: 10,
-    left: 10,
-    alignItems: "start",
-  },
-]);
-
-export const bottomRight = style([
-  {
-    bottom: 10,
-    right: 10,
-    alignItems: "end",
-  },
-]);
-
-export const titleContainer = style([
-  vStack,
-  {
-    position: "absolute",
-    padding: "10px",
+    display: "flex",
+    gap: "12px",
+    fontSize: "12px",
+    fontFamily: '"Lora", serif',
+    fontStyle: "italic",
+    color: "#666",
+    textTransform: "uppercase",
   },
 ]);
 
 export const title = style([
   {
+    fontFamily: '"Playfair Display", serif',
     fontSize: titleSize,
-  },
-]);
-
-export const titleBubble = style([
-  {
-    padding: "8px 16px",
-    backgroundColor: "white",
-    borderRadius: "30px",
-    margin: "-7px 0",
-  },
-  {
-    ":first-child": {
-      marginTop: 0,
-    },
-    ":last-child": {
-      marginBottom: 0,
-    },
-  },
-]);
-
-export const tagsContainer = style([
-  vStack,
-  {
-    position: "absolute",
-  },
-]);
-
-export const tagBase = style([
-  {
-    padding: "4px 8px",
-    borderRadius: "20px",
-    border: "1px solid transparent",
-  },
-]);
-
-export const filledTag = style([
-  tagBase,
-  {
-    backgroundColor: "white",
-    color: "black",
-  },
-]);
-
-export const outlinedTag = style([
-  tagBase,
-  {
-    backgroundColor: "transparent",
-    color: "white",
-    border: "1px solid white",
-  },
-]);
-
-export const tagText = style([
-  {
-    fontSize: "14px",
+    fontWeight: 700,
+    lineHeight: 1.2,
+    margin: 0,
+    color: "#2b2b2b",
   },
 ]);
