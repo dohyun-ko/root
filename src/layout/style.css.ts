@@ -7,7 +7,6 @@ export const headerWrapper = style([
   {
     alignItems: "center",
     width: "100%",
-    backgroundColor: "#F5F2E8",
     borderBottom: "1px solid #2b2b2b",
     marginBottom: "40px",
   },

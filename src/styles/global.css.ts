@@ -2,7 +2,7 @@ import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("html, body", {
   margin: 0,
-  backgroundColor: "#F5F2E8",
+  backgroundColor: "#FFFFFF",
   boxSizing: "border-box",
   fontFamily: '"Lora", serif',
   color: "#2b2b2b",
