@@ -1,94 +1,82 @@
 import { style } from "@vanilla-extract/css";
 import { vStack } from "@/styles/stack.css";
+import { color, font, dashedBorder } from "@/styles/const.css";
+
+export const gridRow = style({
+  display: "grid",
+  gridColumn: "1 / -1",
+  gridTemplateColumns: "subgrid",
+});
+
+export const outerLeft = style({});
+export const outerRight = style({});
+
+export const gutterLeft = style({
+  borderRight: dashedBorder,
+});
+
+export const gutterRight = style({
+  borderLeft: dashedBorder,
+});
 
 export const container = style([
   vStack,
   {
-    width: "100%",
-    paddingTop: "40px",
-    gap: "24px",
+    padding: "48px 24px 80px",
+    gap: "32px",
+    maxWidth: "720px",
   },
 ]);
 
-export const headline = style([
-  {
-    fontSize: "64px",
-    fontWeight: 900,
-    fontFamily: '"Playfair Display", serif',
-    letterSpacing: "-0.02em",
-    lineHeight: 1.1,
-    borderBottom: "2px solid #2b2b2b",
-    paddingBottom: "24px",
-    marginBottom: "16px",
-  },
-]);
-
-export const contentContainer = style({
-  display: "grid",
-  gridTemplateColumns: "1fr 300px",
-  gap: "60px",
-  alignItems: "start",
-  "@media": {
-    "screen and (max-width: 768px)": {
-      gridTemplateColumns: "1fr",
-    },
-  },
+export const headline = style({
+  fontSize: "40px",
+  fontWeight: 600,
+  fontFamily: font.heading,
+  letterSpacing: "-0.02em",
+  lineHeight: 1.2,
+  color: color.text,
 });
 
 export const mainColumn = style([
   vStack,
   {
-    gap: "24px",
-    fontFamily: '"Lora", serif',
-    fontSize: "18px",
-    lineHeight: "1.8",
-    color: "#2b2b2b",
-    textAlign: "justify",
+    gap: "20px",
+    fontFamily: font.body,
+    fontSize: "17px",
+    lineHeight: 1.8,
+    color: color.text,
   },
 ]);
 
-export const sideColumn = style([
-  vStack,
-  {
-    gap: "24px",
-    paddingLeft: "30px",
-    borderLeft: "1px solid #e0e0e0",
-  },
-]);
+export const image = style({
+  width: "100%",
+  maxWidth: "480px",
+  aspectRatio: "16/9",
+  objectFit: "cover",
+  borderRadius: "4px",
+});
 
-export const dropCap = style({
-  float: "left",
-  fontSize: "64px",
-  lineHeight: "0.8",
-  fontWeight: 700,
-  fontFamily: '"Playfair Display", serif',
-  marginRight: "12px",
-  marginTop: "8px",
-  color: "#2b2b2b",
+export const caption = style({
+  fontFamily: font.body,
+  fontSize: "14px",
+  color: color.textSecondary,
 });
 
 export const subhead = style({
   fontSize: "24px",
-  fontWeight: 700,
-  fontFamily: '"Playfair Display", serif',
-  marginTop: "24px",
-  marginBottom: "8px",
-});
-
-export const image = style({
-  width: "100%",
-  aspectRatio: "3/4",
-  objectFit: "cover",
-  filter: "grayscale(100%)",
-  border: "1px solid #2b2b2b",
-});
-
-export const caption = style({
-  fontFamily: '"Lora", serif',
-  fontSize: "14px",
-  fontStyle: "italic",
-  color: "#666",
+  fontWeight: 600,
+  fontFamily: font.heading,
   marginTop: "8px",
-  borderBottom: "1px solid #e0e0e0",
-  paddingBottom: "8px",
+  color: color.text,
+});
+
+export const dropCap = style({
+  float: "left",
+  fontSize: "56px",
+  lineHeight: 0.8,
+  fontWeight: 600,
+  fontFamily: font.heading,
+  marginRight: "12px",
+  marginTop: "8px",
+  color: color.text,
 });

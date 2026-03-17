@@ -10,29 +10,41 @@ export const Article = () => {
 
   if (!post) {
     return (
-      <div className={styles.container}>
-        <h1>Post not found</h1>
+      <div className={styles.gridRow}>
+        <div className={styles.outerLeft} />
+        <div className={styles.gutterLeft} />
+        <div className={styles.container}>
+          <h1>Post not found</h1>
+        </div>
+        <div className={styles.gutterRight} />
+        <div className={styles.outerRight} />
       </div>
     );
   }
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{post.title}</h1>
-        <div className={styles.meta}>
-          <span>{formatDate(post.date)}</span>
-          {post.tags && post.tags.length > 0 && (
-            <span> • {post.tags.join(", ")}</span>
-          )}
-        </div>
-      </header>
+    <div className={styles.gridRow}>
+      <div className={styles.outerLeft} />
+      <div className={styles.gutterLeft} />
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{post.title}</h1>
+          <div className={styles.meta}>
+            <span>{formatDate(post.date)}</span>
+            {post.tags && post.tags.length > 0 && (
+              <span> &middot; {post.tags.join(", ")}</span>
+            )}
+          </div>
+        </header>
 
-      <div className={styles.content}>
-        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-          {post.content}
-        </ReactMarkdown>
+        <div className={styles.content}>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {post.content}
+          </ReactMarkdown>
+        </div>
       </div>
+      <div className={styles.gutterRight} />
+      <div className={styles.outerRight} />
     </div>
   );
 };

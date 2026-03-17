@@ -1,88 +1,77 @@
-import { styleConstants } from "@/styles/const.css";
+import { styleConstants, color, font, dashedBorder } from "@/styles/const.css";
 import { hStack, vStack } from "@/styles/stack.css";
 import { style } from "@vanilla-extract/css";
 
-export const headerWrapper = style([
-  vStack,
-  {
-    alignItems: "center",
-    width: "100%",
-    borderBottom: "1px solid #2b2b2b",
-    marginBottom: "40px",
-  },
-]);
+// The whole page is a single grid with dashed gutter columns
+export const layoutContainer = style({
+  display: "grid",
+  gridTemplateColumns: `1fr 48px minmax(0, ${styleConstants.width.inner}) 48px 1fr`,
+  minHeight: "100vh",
+  width: "100%",
+});
 
-export const headerContainer = style([
-  vStack,
-  {
-    padding: "40px 20px 20px",
-    gap: "20px",
-    alignItems: "center",
-    width: "100%",
-    maxWidth: styleConstants.width.inner,
-    borderBottom: "4px double #2b2b2b",
-  },
-]);
+// A full-width row inside the grid
+export const gridRow = style({
+  display: "grid",
+  gridColumn: "1 / -1",
+  gridTemplateColumns: "subgrid",
+  borderBottom: dashedBorder,
+});
 
-export const metaBar = style([
+// The outer areas (beyond content)
+export const outerLeft = style({});
+export const outerRight = style({});
+
+// The gutter columns with dashed inner borders
+export const gutterLeft = style({
+  borderRight: dashedBorder,
+});
+
+export const gutterRight = style({
+  borderLeft: dashedBorder,
+});
+
+// Header
+export const headerContent = style([
   hStack,
   {
-    width: "100%",
+    padding: "20px 24px",
     justifyContent: "space-between",
-    padding: "8px 0",
-    borderTop: "1px solid #2b2b2b",
-    borderBottom: "1px solid #2b2b2b",
-    fontFamily: '"Lora", serif',
-    fontSize: "14px",
-    fontStyle: "italic",
-  },
-]);
-
-export const title = style([
-  {
-    margin: 0,
-    lineHeight: 1,
-    fontSize: "48px",
-    fontWeight: 900,
-    fontFamily: '"Playfair Display", serif',
-    textTransform: "uppercase",
-    textAlign: "center",
-    letterSpacing: "-0.02em",
-  },
-]);
-
-export const layoutContainer = style([
-  vStack,
-  {
-    width: "100%",
     alignItems: "center",
-    position: "relative",
+    width: "100%",
   },
 ]);
+
+export const logo = style({
+  fontFamily: font.heading,
+  fontSize: "18px",
+  fontWeight: 600,
+  color: color.text,
+});
 
 export const navigation = style([
   hStack,
   {
     gap: "32px",
-    width: "100%",
-    justifyContent: "center",
-    padding: "12px 0",
-    borderTop: "1px solid #2b2b2b",
-    borderBottom: "1px solid #2b2b2b",
+    alignItems: "center",
   },
 ]);
 
-export const navigationLink = style([
-  {
-    textDecoration: "none",
-    color: "#2b2b2b",
-    fontFamily: '"Lora", serif',
-    fontSize: "14px",
-    fontWeight: 600,
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-    ":hover": {
-      textDecoration: "underline",
-    },
+export const navigationLink = style({
+  fontFamily: font.body,
+  fontSize: "14px",
+  fontWeight: 500,
+  color: color.textSecondary,
+  transition: "color 0.15s ease",
+  ":hover": {
+    color: color.text,
   },
-]);
+});
+
+// Main content area
+export const mainContent = style({
+  gridColumn: "1 / -1",
+  display: "grid",
+  gridTemplateColumns: "subgrid",
+  flex: 1,
+});

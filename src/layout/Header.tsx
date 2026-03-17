@@ -1,42 +1,26 @@
-import {
-  headerContainer,
-  headerWrapper,
-  navigation,
-  navigationLink,
-  title,
-  metaBar,
-} from "./style.css";
+import { Link } from "@tanstack/react-router";
+import * as styles from "./style.css";
 
 const Header = () => {
   return (
-    <div className={headerWrapper}>
-      <div className={headerContainer}>
-        <h1 className={title}>Pixels / Pragmatism / Product</h1>
-
-        <div className={metaBar}>
-          <span>Vol. 1, No. 1</span>
-          <span>Dohyun Ko's Journal</span>
-          <span>Price: Free</span>
-        </div>
-
-        <div className={navigation}>
-          <a className={navigationLink} href="/">
+    <div className={styles.gridRow}>
+      <div className={styles.outerLeft} />
+      <div className={styles.gutterLeft} />
+      <div className={styles.headerContent}>
+        <Link to="/" className={styles.logo}>
+          Dohyun Ko
+        </Link>
+        <nav className={styles.navigation}>
+          <Link to="/" className={styles.navigationLink}>
             Articles
-          </a>
-          <a
-            className={navigationLink}
-            href="/"
-            style={{
-              textDecoration: "line-through",
-            }}
-          >
-            Projects
-          </a>
-          <a className={navigationLink} href="/about">
+          </Link>
+          <Link to="/about" className={styles.navigationLink}>
             About
-          </a>
-        </div>
+          </Link>
+        </nav>
       </div>
+      <div className={styles.gutterRight} />
+      <div className={styles.outerRight} />
     </div>
   );
 };
