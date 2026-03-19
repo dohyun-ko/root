@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { vStack } from "@/styles/stack.css";
-import { color, font, dashedBorder, styleConstants } from "@/styles/const.css";
+import { color, font, dashedBorder } from "@/styles/const.css";
 
 export const gridRow = style({
   display: "grid",
@@ -20,35 +20,62 @@ export const gutterRight = style({
   borderLeft: dashedBorder,
 });
 
+// ---- Hero ----
+
+export const heroCell = style({
+  padding: "64px 24px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  textAlign: "left",
+  gap: "24px",
+});
+
+export const ornament = style({
+  fontFamily: '"JetBrains Mono", monospace',
+  fontSize: "12px",
+  color: color.textSecondary,
+  margin: 0,
+  letterSpacing: "0.15em",
+  opacity: 0.5,
+});
+
+export const headline = style({
+  fontSize: "72px",
+  fontWeight: 600,
+  fontFamily: font.heading,
+  letterSpacing: "-0.03em",
+  lineHeight: 1.0,
+  color: color.text,
+  "@media": {
+    "screen and (max-width: 768px)": {
+      fontSize: "48px",
+    },
+  },
+});
+
+export const headlineAmp = style({
+  fontStyle: "italic",
+  fontWeight: 400,
+});
+
+export const subtitle = style({
+  fontSize: "14px",
+  letterSpacing: "0.15em",
+  textTransform: "uppercase",
+  color: color.textSecondary,
+  fontFamily: font.body,
+  fontWeight: 500,
+});
+
+// ---- Cells ----
+
 export const cell = style({
   padding: "48px 24px",
 });
 
 export const cellCompact = style({
   padding: "20px 24px",
-});
-
-// ---- Hero ----
-
-export const headline = style({
-  fontSize: "56px",
-  fontWeight: 600,
-  fontFamily: font.heading,
-  letterSpacing: "-0.03em",
-  lineHeight: 1.08,
-  color: color.text,
-  marginBottom: "20px",
-});
-
-export const headlineItalic = style({
-  fontStyle: "italic",
-});
-
-export const subtitle = style({
-  fontSize: "17px",
-  lineHeight: 1.7,
-  color: color.textSecondary,
-  maxWidth: "440px",
 });
 
 // ---- Post row ----

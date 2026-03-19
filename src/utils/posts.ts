@@ -7,6 +7,7 @@ export interface Post {
   thumbnail?: string;
   description?: string;
   tags?: string[];
+  draft?: boolean;
   content: string;
 }
 
@@ -21,6 +22,8 @@ export const getPosts = async (): Promise<Post[]> => {
     const raw = (await modules[path]()) as string;
     const { data, content } = matter(raw);
     const slug = path.split("/").pop()?.replace(".md", "") || "";
+
+    if (data.draft) continue;
 
     posts.push({
       slug,
@@ -53,6 +56,8 @@ export const getPostBySlug = async (
 
   const raw = (await modules[path]()) as string;
   const { data, content } = matter(raw);
+
+  if (data.draft) return undefined;
 
   return {
     slug,

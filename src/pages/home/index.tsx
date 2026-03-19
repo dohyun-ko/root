@@ -18,16 +18,21 @@ const Home = () => {
       <div className={styles.gridRow}>
         <div className={styles.outerLeft} />
         <div className={styles.gutterLeft} />
-        <div className={styles.cell}>
+        <div className={styles.heroCell}>
+          <pre className={styles.ornament}>
+            {"~  *  ~  *  ~  *  ~  *  ~  *  ~"}
+          </pre>
           <h1 className={styles.headline}>
-            Pixels, Pragmatism
+            Pixels,
             <br />
-            <span className={styles.headlineItalic}>& Product</span>
+            Pragmatism,
+            <br />
+            Product.
           </h1>
-          <p className={styles.subtitle}>
-            Thoughts on frontend engineering, design systems, and building
-            products that matter.
-          </p>
+          <p className={styles.subtitle}>Dohyun Ko's Journal</p>
+          <pre className={styles.ornament}>
+            {"~  *  ~  *  ~  *  ~  *  ~  *  ~"}
+          </pre>
         </div>
         <div className={styles.gutterRight} />
         <div className={styles.outerRight} />

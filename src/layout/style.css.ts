@@ -8,6 +8,11 @@ export const layoutContainer = style({
   gridTemplateColumns: `1fr 48px minmax(0, ${styleConstants.width.inner}) 48px 1fr`,
   minHeight: "100vh",
   width: "100%",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      gridTemplateColumns: `8px 24px minmax(0, 1fr) 24px 8px`,
+    },
+  },
 });
 
 // A full-width row inside the grid

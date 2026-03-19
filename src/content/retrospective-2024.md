@@ -4,6 +4,7 @@ date: "2025-12-01"
 thumbnail: "https://dohyun-images.s3.ap-northeast-2.amazonaws.com/profile-cropped.jpg"
 description: "This is my first blog post using Markdown."
 tags: ["React", "Vite"]
+draft: true
 ---
 
 벌써 25년이 끝나가지만... 25년 회고를 하기 전 깜박하고 넘겨버린 24년도 회고를 간단히 해보려합니다.

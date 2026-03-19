@@ -114,6 +114,19 @@ globalStyle(`${content} img`, {
   borderRadius: "4px",
 });
 
+globalStyle(`${content} a`, {
+  color: color.text,
+  textDecoration: "underline",
+  textDecorationStyle: "dashed",
+  textDecorationColor: "rgba(20, 20, 20, 0.4)",
+  textUnderlineOffset: "3px",
+  transition: "text-decoration-color 0.15s",
+});
+
+globalStyle(`${content} a:hover`, {
+  textDecorationColor: color.text,
+});
+
 globalStyle(`${content} blockquote`, {
   borderLeft: `2px dashed rgba(20, 20, 20, 0.2)`,
   paddingLeft: "20px",
