@@ -14,9 +14,9 @@ const Header = () => {
           <Link to="/" className={styles.navigationLink}>
             Articles
           </Link>
-          <Link to="/about" className={styles.navigationLink}>
+          <a href="https://dohyun.is-a.dev" className={styles.navigationLink}>
             About
-          </Link>
+          </a>
         </nav>
       </div>
       <div className={styles.gutterRight} />

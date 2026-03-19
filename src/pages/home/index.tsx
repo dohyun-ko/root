@@ -42,7 +42,8 @@ const Home = () => {
       {posts.map((post) => (
         <Link
           key={post.slug}
-          to={`/posts/${post.slug}`}
+          to={"/posts/$slug" as const}
+          params={{ slug: post.slug }}
           className={styles.gridRow}
         >
           <div className={styles.outerLeft} />

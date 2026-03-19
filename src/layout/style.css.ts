@@ -1,5 +1,5 @@
 import { styleConstants, color, font, dashedBorder } from "@/styles/const.css";
-import { hStack, vStack } from "@/styles/stack.css";
+import { hStack } from "@/styles/stack.css";
 import { style } from "@vanilla-extract/css";
 
 // The whole page is a single grid with dashed gutter columns
